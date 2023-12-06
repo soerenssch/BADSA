@@ -15,10 +15,12 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.markdown(
-    '<div class="footer">© 2023 Capstone Gruppe Research. All rights reserved.</div>',
+    '<div class="footer">© 2023 Business Analytics and Data Science Applications. All rights reserved.</div>',
     unsafe_allow_html=True,
 )
 
 st.header('Hello')
+
+a = st.sidebar.radio('Choose:',[1,2])
 
 st.chat_input("Say something")
