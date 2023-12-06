@@ -31,8 +31,6 @@ Test2 = 'Test2'
 
 a = st.sidebar.radio('Choose:',[UploadData, Test2])
 
-st.chat_input("Say something")
-
 
 ## Upload data to analyse
 
