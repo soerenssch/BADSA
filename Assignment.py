@@ -1,5 +1,10 @@
+## Packages
 import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
 
+
+## Graphic layout streamlit
 st.markdown(
     """
     <style>
@@ -21,6 +26,15 @@ st.markdown(
 
 st.header('Hello')
 
-a = st.sidebar.radio('Choose:',[1,2])
+UploadData = 'Upload data'
+Test2 = 'Test2'
+
+a = st.sidebar.radio('Choose:',[UploadData, Test2])
 
 st.chat_input("Say something")
+
+
+## Upload data to analyse
+
+if a == UploadData:
+    file = st.file_uploader("Laden Sie Ihre Datei hier hoch:", type=["csv"])
