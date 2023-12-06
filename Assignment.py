@@ -1,13 +1,5 @@
 import streamlit as st
 
-
-st.set_page_config(
-    page_title="Sentiment-Analyse",
-    page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded",    
-)
-
 st.markdown(
     """
     <style>
@@ -26,3 +18,4 @@ st.markdown(
     '<div class="footer">© 2023 Capstone Gruppe Research. All rights reserved.</div>',
     unsafe_allow_html=True,
 )
+
