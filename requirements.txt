@@ -1,2 +1,10 @@
-matplotlib==3.4.3
-streamlit==1.14.0
+﻿pandas<2.0.1
+streamlit==1.22.0
+streamlit-option-menu==0.3.2
+outscraper==3.0.3
+openai==0.27.5
+requests==2.29.0
+tqdm==4.65.0
+python-docx==0.8.11
+matplotlib==3.7.1
+scipy==1.10.1
