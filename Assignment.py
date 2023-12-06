@@ -1,13 +1,13 @@
 # Replace any single element.
->>> element = st.empty()
->>> element.line_chart(...)
->>> element.text_input(...)  # Replaces previous.
+element = st.empty()
+element.line_chart(...)
+element.text_input(...)  # Replaces previous.
 
 # Insert out of order.
->>> elements = st.container()
->>> elements.line_chart(...)
->>> st.write("Hello")
->>> elements.text_input(...)  # Appears above "Hello".
+elements = st.container()
+elements.line_chart(...)
+st.write("Hello")
+elements.text_input(...)  # Appears above "Hello".
 
 st.help(pandas.DataFrame)
 st.get_option(key)
