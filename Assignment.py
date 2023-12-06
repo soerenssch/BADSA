@@ -1,7 +1,7 @@
 ## Packages
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
 ## Graphic layout streamlit
@@ -38,3 +38,4 @@ st.chat_input("Say something")
 
 if a == UploadData:
     file = st.file_uploader("Laden Sie Ihre Datei hier hoch:", type=["csv"])
+
