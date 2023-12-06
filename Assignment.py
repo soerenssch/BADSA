@@ -1,6 +1,8 @@
 ## Packages
 import streamlit as st
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 ## Graphic layout streamlit
 st.markdown(
@@ -33,5 +35,20 @@ a = st.sidebar.radio('Choose:',[UploadData, Test2])
 
 ## Upload data to analyse
 if a == UploadData:
-    file = st.file_uploader("Laden Sie Ihre Datei hier hoch:", type=["csv"])
+    file = st.file_uploader("Upload your data:", type=["csv"])
 
+if a == Test2:
+
+    x = np.linspace(0, 10, 200) 
+    y = 2 * x + 1 + np.random.normal(0, 2, size=len(x))
+
+    # Plot the dataset
+    fig, ax = plt.subplots()
+    ax.scatter(x, y, label='Data points')
+    ax.plot(x, 2 * x + 1, color='red', linestyle='--', label='True line')
+    ax.set_title('Generated Dataset with Noise')
+    ax.set_xlabel('X-axis')
+    ax.set_ylabel('Y-axis')
+    ax.legend()
+
+    st.pyplot(fig)
