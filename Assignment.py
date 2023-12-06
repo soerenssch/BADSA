@@ -20,3 +20,5 @@ st.markdown(
 )
 
 st.header('Hello')
+
+st.chat_input("Say something")
