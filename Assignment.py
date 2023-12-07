@@ -34,29 +34,29 @@ Visualisation = 'Visualisation'
 
 a = st.sidebar.radio('Choose:',[WeatherData, Visualisation])
 
-## Upload data to analyse
+## Retrieve weather data
 if a == WeatherData:
-    file = st.file_uploader("Upload your data:", type=["csv"])
-
 
     key = st.text_input('Enter your OpenWeather API key:')
     url = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid={key}'
 
-    response = requests.get(url)
+    if st.button('Retrieve Weather data'):
+        response = requests.get(url)
 
-    if response.status_code == 200:
-        # Parse the JSON response
-        weather_data = response.json()
+        if response.status_code == 200:
+            # Parse the JSON response
+            weather_data = response.json()
 
-    # Print current weather conditions
-        st.write(f"Current weather conditions for London:")
-        st.write("------------------------------------")
-        st.write(f"Temperature: {weather_data['main']['temp']}°C")
-        st.write(f"Humidity: {weather_data['main']['humidity']:.0f}%")
-        st.write(f"Pressure: {weather_data['main']['pressure']} hPa")
-        st.write(f"Description: {weather_data['weather'][0]['description']}")
-    else:
-        st.error(f"Error retrieving weather data: {response.status_code}")
+        # Print current weather conditions
+            st.write(f"Current weather conditions for London:")
+            st.write("------------------------------------")
+            st.write(f"Temperature: {weather_data['main']['temp']}°C")
+            st.write(f"Humidity: {weather_data['main']['humidity']:.0f}%")
+            st.write(f"Pressure: {weather_data['main']['pressure']} hPa")
+            st.write(f"Description: {weather_data['weather'][0]['description']}")
+        else:
+            st.error(f"Error retrieving weather data: {response.status_code}")
+    else: st.error('Hello')
 
 
 
