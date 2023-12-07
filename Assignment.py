@@ -40,20 +40,24 @@ if a == WeatherData:
     key = st.text_input('Enter your OpenWeather API key:')
     url = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid={key}'
 
-    if st.button('Retrieve Weather data'):
+    submit = st.button('Retrieve Weather data')
+
+    if submit:
+        st.write('Weather data is being retrieved.')
+
         response = requests.get(url)
 
         if response.status_code == 200:
             # Parse the JSON response
             weather_data = response.json()
 
-        # Print current weather conditions
-            st.write(f"Current weather conditions for London:")
-            st.write("------------------------------------")
-            st.write(f"Temperature: {weather_data['main']['temp']}°C")
-            st.write(f"Humidity: {weather_data['main']['humidity']:.0f}%")
-            st.write(f"Pressure: {weather_data['main']['pressure']} hPa")
-            st.write(f"Description: {weather_data['weather'][0]['description']}")
+            weather_df = pd.DataFrame(weather_data)
+
+            # Format the temperature column to Celsius
+            weather_df['main.temp'] = weather_df['main.temp'] - 273.15
+
+            # Display the DataFrame in Streamlit
+            st.dataframe(weather_df)
         else:
             st.error(f"Error retrieving weather data: {response.status_code}")
     else: st.error('Hello')
