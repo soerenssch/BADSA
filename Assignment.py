@@ -44,11 +44,11 @@ if a == WeatherData:
 
     response = requests.get(url)
 
-        if response.status_code == 200:
-            # Parse the JSON response
-            weather_data = response.json()
+    if response.status_code == 200:
+        # Parse the JSON response
+        weather_data = response.json()
 
-        # Print current weather conditions
+    # Print current weather conditions
         st.write(f"Current weather conditions for London:")
         st.write("------------------------------------")
         st.write(f"Temperature: {weather_data['main']['temp']}°C")
